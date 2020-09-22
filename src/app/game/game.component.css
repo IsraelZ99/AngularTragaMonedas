@@ -1,0 +1,49 @@
+.entorno{
+    width: 90%;
+    height: 100px;
+    margin-left: 1%;
+    display: flex;
+    /*border: 1px solid black; */
+}
+
+.contenedorBolitas{
+    width: 75%;
+}
+
+.bolita{
+    width: 100px;
+    height: 100px;
+    margin: 0 3%;
+    border: 2px solid;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.numberWin{
+    padding-left: 40%;
+    padding-top: 20%;
+}
+
+.numberWin p{
+    font-family: 'Georgia';
+    font-size: 20px;
+    font-weight: 800;
+    color: turquoise;
+}
+
+.contenedorBoton{
+    width: 20%;
+    height: 40%;
+    margin-top: 3%;
+    margin-left: 3%;
+}
+
+button {
+    width: 70%;
+    height: 50%;
+    border: 0;
+    background-color: darkslateblue;
+    outline: none;
+    cursor: pointer;
+    color: white;
+}
