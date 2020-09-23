@@ -1,5 +1,5 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Aleatorio } from '../aleatorio';
 
 @Component({
@@ -7,7 +7,7 @@ import { Aleatorio } from '../aleatorio';
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css']
 })
-export class GameComponent implements OnInit {
+export class GameComponent {
 
   public bolitas: number[];
   public aleatorio: Aleatorio;
