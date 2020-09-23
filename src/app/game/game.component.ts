@@ -15,7 +15,7 @@ export class GameComponent {
   public nameUser:string;
 
   constructor() {
-    this.balls = [0, 0, 0, 0];
+    this.balls = environment.balls;
     this.random = new Random();
     this.nameUser = environment.username;
   }
