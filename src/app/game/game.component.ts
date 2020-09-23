@@ -26,7 +26,6 @@ export class GameComponent {
     this.random.status();
     this.balls = this.random.getballs();
     this.outputMessage = this.random.getOutputMessage();
-    console.log("El usuario actual es : "+this.nameUser); 
   }
 
   ngOnInit(): void {
