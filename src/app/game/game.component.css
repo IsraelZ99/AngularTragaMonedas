@@ -14,9 +14,6 @@
     width: 100px;
     height: 100px;
     margin: 0 3%;
-    border: 2px solid;
-    background-color: black;
-    border-radius: 50%;
 }
 
 .numberWin{
@@ -38,15 +35,6 @@
     margin-left: 3%;
 }
 
-button {
-    width: 70%;
-    height: 50%;
-    border: 0;
-    background-color: darkslateblue;
-    outline: none;
-    cursor: pointer;
-    color: white; 
-}
 
 .message {
     margin-top: 30px;
@@ -63,4 +51,9 @@ button {
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 1.7px;
+}
+
+.ouputMessage{
+    margin-top: 30px;
+    text-align: center;
 }

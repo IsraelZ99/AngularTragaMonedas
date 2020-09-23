@@ -2,15 +2,15 @@
 
     <div class="contenedorBolitas" *ngFor="let bolita of bolitas">
         <div class="bolita">  
-            <section class="numberWin">
-                <p> {{ bolita }}   </p>
-            </section>
+            <button type="button" class="btn btn-outline-success btn-lg btn-block"> 
+                {{ bolita }} 
+            </button>
         </div>
     </div>
-    
-    <button (click)="jugar()">Jugar</button>
+    <button type="button" class="btn btn-info" (click)="jugar()">Jugar</button>
 
 </div>
 
-
-<div class="message"> <p> {{ outputMessage }} </p> </div>
+<div class="alert alert-info ouputMessage" role="alert">
+    {{ outputMessage }}
+</div>

@@ -39,6 +39,7 @@ export class Aleatorio {
             posicion = this.bolitas.indexOf(elementSearch, posicion + 1);
         }
         
+        
         if(repeticion === this.bolitas.length)
             this.outputMessage = "FELICIDADES GANASTE";
         else
