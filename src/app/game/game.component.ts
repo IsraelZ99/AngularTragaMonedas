@@ -1,6 +1,6 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component } from '@angular/core';
 import { Random } from '../random';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-game',
@@ -12,10 +12,12 @@ export class GameComponent {
   public balls: number[];
   public random: Random;
   public outputMessage: string;
+  public nameUser:string;
 
   constructor() {
     this.balls = [0, 0, 0, 0];
     this.random = new Random();
+    this.nameUser = environment.username;
   }
 
   playVideogame() {
@@ -24,6 +26,7 @@ export class GameComponent {
     this.random.status();
     this.balls = this.random.getballs();
     this.outputMessage = this.random.getOutputMessage();
+    console.log("El usuario actual es : "+this.nameUser); 
   }
 
   ngOnInit(): void {
