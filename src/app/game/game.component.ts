@@ -1,3 +1,4 @@
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { Aleatorio } from '../aleatorio';
 
@@ -10,6 +11,7 @@ export class GameComponent implements OnInit {
 
   public bolitas: number[];
   public aleatorio: Aleatorio;
+  public outputMessage: string;
 
   constructor() {
     this.bolitas = [0, 0, 0, 0];
@@ -19,7 +21,9 @@ export class GameComponent implements OnInit {
   jugar() {
     this.aleatorio.setBolitas(this.bolitas);
     this.aleatorio.numeroAleatorio();
-    this.bolitas = this.aleatorio.getBolitas(); 
+    this.aleatorio.status();
+    this.bolitas = this.aleatorio.getBolitas();
+    this.outputMessage = this.aleatorio.getOutputMessage();
   }
 
   ngOnInit(): void {

@@ -47,3 +47,20 @@ button {
     cursor: pointer;
     color: white; 
 }
+
+.message {
+    margin-top: 30px;
+    width: 100%;
+    height: 50px;
+    background-color: rgb(51, 255, 141);
+}
+
+.message p {
+    padding-top: 1%;
+    color: rgb(66, 70, 68);
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1.7px;
+}
