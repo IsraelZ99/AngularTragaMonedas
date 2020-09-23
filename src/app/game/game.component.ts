@@ -19,7 +19,7 @@ export class GameComponent implements OnInit {
   jugar() {
     this.aleatorio.setBolitas(this.bolitas);
     this.aleatorio.numeroAleatorio();
-    this.bolitas = this.aleatorio.getBolitas();
+    this.bolitas = this.aleatorio.getBolitas(); 
   }
 
   ngOnInit(): void {
