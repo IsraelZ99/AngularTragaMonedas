@@ -1,13 +1,13 @@
-<div class="entorno">
+<div class="environment">
 
-    <div class="contenedorBolitas" *ngFor="let bolita of bolitas">
-        <div class="bolita">  
+    <div class="containBalls" *ngFor="let ball of bolitas">
+        <div class="balls">  
             <button type="button" class="btn btn-outline-success btn-lg btn-block"> 
-                {{ bolita }} 
+                {{ ball }} 
             </button>
         </div>
     </div>
-    <button type="button" class="btn btn-info" (click)="jugar()">Jugar</button>
+    <button type="button" class="btn btn-info" (click)="playVideogame()">Jugar</button>
 
 </div>
 

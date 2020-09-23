@@ -1,6 +1,6 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component } from '@angular/core';
-import { Aleatorio } from '../aleatorio';
+import { Random } from '../random';
 
 @Component({
   selector: 'app-game',
@@ -9,21 +9,21 @@ import { Aleatorio } from '../aleatorio';
 })
 export class GameComponent {
 
-  public bolitas: number[];
-  public aleatorio: Aleatorio;
+  public balls: number[];
+  public random: Random;
   public outputMessage: string;
 
   constructor() {
-    this.bolitas = [0, 0, 0, 0];
-    this.aleatorio = new Aleatorio();
+    this.balls = [0, 0, 0, 0];
+    this.random = new Random();
   }
 
-  jugar() {
-    this.aleatorio.setBolitas(this.bolitas);
-    this.aleatorio.numeroAleatorio();
-    this.aleatorio.status();
-    this.bolitas = this.aleatorio.getBolitas();
-    this.outputMessage = this.aleatorio.getOutputMessage();
+  playVideogame() {
+    this.random.setballs(this.balls);
+    this.random.numberRandom();
+    this.random.status();
+    this.balls = this.random.getballs();
+    this.outputMessage = this.random.getOutputMessage();
   }
 
   ngOnInit(): void {

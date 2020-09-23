@@ -1,4 +1,4 @@
-.entorno{
+.environment{
     width: 90%;
     height: 100px;
     margin-left: 1%;
@@ -6,51 +6,14 @@
     /*border: 1px solid black; */
 }
 
-.contenedorBolitas{
+.containBalls{
     width: 75%;
 }
 
-.bolita{
+.balls{
     width: 100px;
     height: 100px;
     margin: 0 3%;
-}
-
-.numberWin{
-    padding-left: 40%;
-    padding-top: 20%;
-}
-
-.numberWin p{
-    font-family: 'Georgia';
-    font-size: 20px;
-    font-weight: 800;
-    color: turquoise;
-}
-
-.contenedorBoton{
-    width: 20%;
-    height: 40%;
-    margin-top: 3%;
-    margin-left: 3%;
-}
-
-
-.message {
-    margin-top: 30px;
-    width: 100%;
-    height: 50px;
-    background-color: rgb(51, 255, 141);
-}
-
-.message p {
-    padding-top: 1%;
-    color: rgb(66, 70, 68);
-    text-align: center;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 18px;
-    font-weight: 700;
-    letter-spacing: 1.7px;
 }
 
 .ouputMessage{
