@@ -1,12 +1,18 @@
+import { environment, environmentClass } from '../environments/environment';
+
 export class Random {
 
     private balls: number[];
     private outputMessage: string;
     private pressRandom: number;
     private numberPress: number;
+    private iteration: number;
+    private environmentMethod: environmentClass;
+    private numberWin: number;
 
     constructor() {
-
+        this.iteration = 0;
+        this.environmentMethod = new environmentClass();
     }
 
     public getOutputMessage(): string {
@@ -30,10 +36,10 @@ export class Random {
     }
 
     public numberRandom() {
-        let iteration = 0;
+        this.iteration = 0;
         this.balls.forEach(element => {
-            this.balls[iteration] = Math.floor(Math.random() * 30 + 10);
-            iteration++;
+            this.balls[this.iteration] = Math.floor(Math.random() * 10 + 1);
+            this.iteration++;
         });
     }
 
@@ -51,27 +57,17 @@ export class Random {
             this.outputMessage = "LO LAMENTO PERDISTE";
     }
 
-    public posibilityWin(): number {
-        return this.pressRandom = Math.floor(Math.random() * 15 + 5);
-    }
-
-    public numbersWin(): boolean {
+    public verifyNumbersWin(): boolean {
         if (this.numberPress === 0) {
-            this.posibilityWin();
-            return false;
-        } else {
-            if (this.pressRandom === this.numberPress) {
-                let numberWin = Math.floor(Math.random() * 10 + 1);
-                let iteration = 0;
-                this.balls.forEach(element => {
-                    this.balls[iteration] = numberWin;
-                    iteration++;
-                });
-                this.numberPress = 0;
-                return true;
+            this.pressRandom = this.environmentMethod.probabiltyWin();
+        } else if (this.pressRandom === this.numberPress) {
+            this.iteration = 0;
+            this.numberWin = this.environmentMethod.generateNumberWin();
+            while (this.iteration < this.balls.length) {
+                this.balls[this.iteration] = this.numberWin;
+                this.iteration++;
             }
+            return true;
         }
     }
-
-
 }

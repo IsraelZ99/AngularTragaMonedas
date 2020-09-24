@@ -27,7 +27,7 @@ export class GameComponent {
     this.random.numberRandom();
     this.balls = this.random.getballs();
     this.random.setNumberPress(this.numberPress);
-    if(this.random.numbersWin()) this.numberPress = -1;
+    if(this.random.verifyNumbersWin()) this.numberPress = -1;
     this.random.status();
     this.outputMessage = this.random.getOutputMessage();
     this.numberPress++;
