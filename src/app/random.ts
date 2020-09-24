@@ -1,4 +1,4 @@
-import { environment, environmentClass } from '../environments/environment';
+import { environment } from '../environments/environment';
 
 export class Random {
 
@@ -7,12 +7,10 @@ export class Random {
     private pressRandom: number;
     private numberPress: number;
     private iteration: number;
-    private environmentMethod: environmentClass;
     private numberWin: number;
 
     constructor() {
         this.iteration = 0;
-        this.environmentMethod = new environmentClass();
     }
 
     public getOutputMessage(): string {
