@@ -8,7 +8,7 @@ export const environment = {
   hostURL: 'http://localhost',
   username: 'Israel en local',
   balls: [0, 0, 0, 0],
-  probabilityWin: Math.floor(Math.random() * 5 + 10),
+  probabilityWin: 15,
   numberWin: 10,
   token: '12345678',
   port: 8080,
