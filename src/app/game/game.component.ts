@@ -13,19 +13,24 @@ export class GameComponent {
   public random: Random;
   public outputMessage: string;
   public nameUser:string;
+  public numberPress: number;
 
   constructor() {
     this.balls = environment.balls;
     this.random = new Random();
     this.nameUser = environment.username;
+    this.numberPress = 0;
   }
 
   playVideogame() {
     this.random.setballs(this.balls);
     this.random.numberRandom();
-    this.random.status();
     this.balls = this.random.getballs();
+    this.random.setNumberPress(this.numberPress);
+    if(this.random.numbersWin()) this.numberPress = -1;
+    this.random.status();
     this.outputMessage = this.random.getOutputMessage();
+    this.numberPress++;
   }
 
   ngOnInit(): void {
