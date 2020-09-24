@@ -32,7 +32,7 @@ export class Random {
     public numberRandom() {
         let iteration = 0;
         this.balls.forEach(element => {
-            this.balls[iteration] = Math.floor(Math.random() * 10 + 1);
+            this.balls[iteration] = Math.floor(Math.random() * 30 + 10);
             iteration++;
         });
     }
