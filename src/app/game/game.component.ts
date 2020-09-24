@@ -12,7 +12,7 @@ export class GameComponent {
   public balls: number[];
   public random: Random;
   public outputMessage: string;
-  public nameUser:string;
+  public nameUser: string;
   public numberPress: number;
 
   constructor() {
@@ -27,10 +27,14 @@ export class GameComponent {
     this.random.numberRandom();
     this.balls = this.random.getballs();
     this.random.setNumberPress(this.numberPress);
-    if(this.random.verifyNumbersWin()) this.numberPress = -1;
+    if (this.random.verifyNumbersWin()) this.numberPress = -1;
     this.random.status();
     this.outputMessage = this.random.getOutputMessage();
     this.numberPress++;
+  }
+
+  public winnerLoser(): boolean {
+    return (this.outputMessage === "FELICIDADES GANASTE") ? (true) : (false);
   }
 
   ngOnInit(): void {
