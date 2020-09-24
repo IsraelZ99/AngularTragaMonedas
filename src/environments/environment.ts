@@ -2,23 +2,14 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-export class environmentClass {
-
-  public probabiltyWin(): number {
-    return Math.floor(Math.random() * 15 + 10);
-  }
-
-  public generateNumberWin(): number {
-    return Math.floor(Math.random() * 10 + 1);
-  }
-
-}
 
 export const environment = {
   production: false,
   hostURL: 'http://localhost',
   username: 'Israel en local',
   balls: [0, 0, 0, 0],
+  probabilityWin: Math.floor(Math.random() * 5 + 10),
+  numberWin: 10,
   token: '12345678',
   port: 8080,
   envName: 'local'

@@ -59,14 +59,11 @@ export class Random {
 
     public verifyNumbersWin(): boolean {
         if (this.numberPress === 0) {
-            this.pressRandom = this.environmentMethod.probabiltyWin();
+            this.pressRandom = Math.floor(Math.random()*10 + environment.probabilityWin);
         } else if (this.pressRandom === this.numberPress) {
-            this.iteration = 0;
-            this.numberWin = this.environmentMethod.generateNumberWin();
-            while (this.iteration < this.balls.length) {
-                this.balls[this.iteration] = this.numberWin;
-                this.iteration++;
-            }
+            this.balls.forEach(element => {
+                this.balls.splice(this.balls.indexOf(element),1, environment.numberWin);
+            });
             return true;
         }
     }
