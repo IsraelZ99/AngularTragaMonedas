@@ -1,13 +1,30 @@
+<div class="alert alert-info moneyMachine" role="alert">
+    La maquina tiene: {{ moneyMachine }}
+</div>
+
 <div class="environment">
 
     <div class="containBalls" *ngFor="let ball of balls">
-        <div class="balls">  
+        <div class="balls">
             <button type="button" class="btn btn-outline-success btn-lg btn-block"> 
                 {{ ball }} 
             </button>
         </div>
     </div>
-    <button type="button" class="btn btn-info" (click)="playVideogame()">Jugar</button>
+
+    <button type="button" class="btn btn-outline-dark containerCoin">
+        <div class="insertCoin">
+            
+            <div class="" (click)="playVideogame()" [disabled]="buttonStatus" 
+            [className]="buttonStatus ? '' : 'coin' "></div>
+
+        </div>  
+    </button>
+
+    <div class="textInser">
+        <p>Inserta una moneda</p>
+    </div>
+
 
 </div>
 
@@ -15,7 +32,7 @@
 
 <ng-template #thenBlock>
     <div class="alert alert-success ouputMessage" role="alert">
-        {{ outputMessage }}
+        {{ outputMessage }} $ {{ moneyWin }}
     </div>
 </ng-template>
 
@@ -24,6 +41,3 @@
         {{ outputMessage }}
     </div>
 </ng-template>
-
-
-
