@@ -8,6 +8,7 @@ import { GameComponent } from './game/game.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SpinComponent } from './spin/spin.component';
 import { StatusGameComponent } from './status-game/status-game.component';
+import { MoneyManagerComponent } from './money-manager/money-manager.component';
 
 const routes: Route[] = [
   { path: '', component: GameComponent }
@@ -18,7 +19,8 @@ const routes: Route[] = [
     AppComponent,
     GameComponent,
     SpinComponent,
-    StatusGameComponent
+    StatusGameComponent,
+    MoneyManagerComponent
   ],
   imports: [
     BrowserModule,

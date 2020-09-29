@@ -5,6 +5,7 @@ import { SpinArray } from "../spinArray";
 import { environment } from 'src/environments/environment';
 import { Checkers } from '../checker';
 import { DataService } from '../services/data.service';
+import { env } from 'process';
 
 @Component({
   selector: 'app-spin',
@@ -47,6 +48,7 @@ export class SpinComponent {
       this.Checkers.setBalls(this.SpinArray.getBalls());
       this.dataService.msgStatusGame$.emit(this.Checkers.verifyStatusWinerLoser());
       this.dataService.dinnerWin$.emit(this.Checkers.getMoneyWin());
+      this.dataService.dinerInMachine$.emit(environment.moneyMachine);
     });
     this.buttonStatus = true;
   }
