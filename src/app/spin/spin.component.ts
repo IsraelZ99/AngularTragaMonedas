@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { timer } from 'rxjs'
 
-import { SpinArray } from "../spinArray";
-import { environment } from 'src/environments/environment';
-import { Checkers } from '../checker';
 import { DataService } from '../services/data.service';
-import { env } from 'process';
+import { environment } from 'src/environments/environment';
+import { SpinArray } from "../spinArray";
+import { Checkers } from '../checker';
+
 
 @Component({
   selector: 'app-spin',
@@ -17,10 +17,10 @@ export class SpinComponent {
   public balls: number[];
 
   public numberPress: number;
-  public SpinArray: SpinArray;
   public buttonStatus: boolean;
 
   public Checkers: Checkers;
+  public SpinArray: SpinArray;
 
   constructor(private dataService: DataService) {
     this.balls = environment.balls;
@@ -34,6 +34,7 @@ export class SpinComponent {
   public playVideogame() {
     this.SpinArray.setBalls(this.balls);
     this.SpinArray.setNumberPress(this.numberPress);
+    this.dataService.moneyInMachine.emit(this.SpinArray.insertCoin());
     if (this.SpinArray.verifyPressButton()) this.numberPress = -1;
     this.SpinArray.spinNumbersOfArray();
     this.waitMoveBalls();
@@ -46,14 +47,12 @@ export class SpinComponent {
       this.buttonStatus = false;
       environment.balls = this.SpinArray.getBalls();
       this.Checkers.setBalls(this.SpinArray.getBalls());
-      this.dataService.msgStatusGame$.emit(this.Checkers.verifyStatusWinerLoser());
-      this.dataService.dinnerWin$.emit(this.Checkers.getMoneyWin());
-      this.dataService.dinerInMachine$.emit(environment.moneyMachine);
+      this.dataService.msgStatusGame.emit(this.Checkers.verifyStatusWinerLoser());
+      this.dataService.moneyWin.emit(this.Checkers.getMoneyWin());
     });
+    this.dataService.msgStatusGame.emit("");
     this.buttonStatus = true;
   }
 
-  ngOnInit(): void {
-  }
 
 }

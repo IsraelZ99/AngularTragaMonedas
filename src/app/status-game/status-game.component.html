@@ -1,4 +1,4 @@
-<div *ngIf="checkMsgStatus(); then thenBlock else elseBlock"></div>
+<div *ngIf="(msgStatusGame === 'Felicidades, has ganado'); then thenBlock else elseBlock"></div>
 
 <ng-template #thenBlock>
     <div class="alert alert-success ouputMessage" role="alert">

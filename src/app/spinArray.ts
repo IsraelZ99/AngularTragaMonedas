@@ -5,9 +5,9 @@ import { environment } from "../environments/environment";
 
 export class SpinArray {
     private iteration: number;
-    private balls:number[];
-    private pressRandom:number;
-    private numberPress:number;
+    private balls: number[];
+    private pressRandom: number;
+    private numberPress: number;
 
     public getBalls(): number[] {
         return this.balls;
@@ -35,10 +35,13 @@ export class SpinArray {
     public verifyPressButton(): boolean {
         if (this.numberPress === 0) {
             this.pressRandom = Math.floor(Math.random() * 10 + environment.probabilityWin);
-            console.log("Para ganar pulsa: "+this.pressRandom);
         } else if (this.pressRandom === this.numberPress) {
             return true;
         }
+    }
+
+    public insertCoin() :number{
+        return environment.moneyMachine += environment.costMachine;
     }
 
     public spinNumbersOfArray() {

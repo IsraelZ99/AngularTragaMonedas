@@ -5,9 +5,9 @@ import { EventEmitter, Injectable } from '@angular/core';
 })
 export class DataService {
 
-  msgStatusGame$ = new EventEmitter<string>();
-  dinnerWin$ = new EventEmitter<number>();
-  dinerInMachine$ = new EventEmitter<number>();
+  msgStatusGame = new EventEmitter<string>();
+  moneyWin = new EventEmitter<number>();
+  moneyInMachine = new EventEmitter<number>();
   
   constructor() { }
 }

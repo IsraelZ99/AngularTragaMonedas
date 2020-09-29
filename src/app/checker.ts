@@ -32,15 +32,14 @@ export class Checkers {
         }
 
         else {
-            environment.moneyMachine += environment.costMachine;
             return "Lo siento has perdido";
-
         }
     }
 
+
     public generateMoneyBack(): number {
-        let moneyRandomWin = 0;
-        while (moneyRandomWin < this.moneyInMachine) {
+        let moneyRandomWin = 1;
+        while (moneyRandomWin < this.moneyInMachine && moneyRandomWin > 0) {
             moneyRandomWin = Math.floor(Math.random() * this.moneyInMachine + 1);
         }
         return moneyRandomWin;

@@ -20,7 +20,7 @@ export class MoneyManagerComponent implements OnInit {
   }
 
   public showMoneyInMachine() {
-    this.dataService.dinerInMachine$.subscribe(money => {
+    this.dataService.moneyInMachine.subscribe(money => {
       this.moneyMachine = money;
     });
   }
