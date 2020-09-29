@@ -8,11 +8,12 @@ export const environment = {
   hostURL: 'http://localhost',
   username: 'Israel en local',
   balls: [0, 0, 0, 0],
-  probabilityWin: 10,
+  probabilityWin: 1,
   numberWin: 10,
   moneyMachine: 500,
   costMachine: 100,
   contTimer: 1000,
+  msgWinnerLoser: "",
   token: '12345678',
   port: 8080,
   envName: 'local'

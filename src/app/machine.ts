@@ -1,7 +1,6 @@
 import { environment } from '../environments/environment';
-import { interval, timer } from 'rxjs'
+import { interval } from 'rxjs'
 import { take } from 'rxjs/operators';
-import { env } from 'process';
 
 export class Machine {
 
@@ -14,6 +13,14 @@ export class Machine {
 
     constructor() {
         this.iteration = 0;
+    }
+
+    public getPressRandom(): number {
+        return this.pressRandom;
+    }
+
+    public setPressRandom(pressRandom: number): void {
+        this.pressRandom = pressRandom;
     }
 
     public getOutputMessage(): string {
@@ -40,15 +47,23 @@ export class Machine {
         return this.moneyWin;
     }
 
-    public numberRandom() {
-        this.iteration = 0;
-        this.balls.forEach(element => {
-            this.balls[this.iteration] = Math.floor(Math.random() * 10 + 1);
-            this.iteration++;
-        });
+    public verifyPressButton(): boolean {
+        if (this.numberPress === 0) {
+            this.pressRandom = Math.floor(Math.random() * 10 + environment.probabilityWin);
+            console.log("Para ganar pulsa: "+this.pressRandom);
+        } else if (this.pressRandom === this.numberPress) {
+            return true;
+        }
     }
 
-    public status() {
+
+    public generateMoneyBack(): number {
+        let moneyInMachine = environment.moneyMachine;
+        return Math.floor(Math.random() * moneyInMachine + 1);
+    }
+
+    public verifyStatusWinnerLoser() {
+        //if(! spinRun)
         let repetition = 0; let elementSearch = this.balls[0];
         let position = this.balls.indexOf(elementSearch);
         while (position != -1) {
@@ -57,7 +72,7 @@ export class Machine {
         }
 
         if (repetition === this.balls.length) {
-            this.moneyWin = this.moneyBack();
+            this.moneyWin = this.generateMoneyBack();
             this.outputMessage = "FELICIDADES GANASTE";
             environment.moneyMachine -= this.moneyWin;
         }
@@ -65,44 +80,6 @@ export class Machine {
             this.outputMessage = "LO LAMENTO PERDISTE";
             environment.moneyMachine += environment.costMachine;
         }
-    }
-
-    public verifyNumbersWin(): boolean {
-        if (this.numberPress === 0) {
-            this.pressRandom = Math.floor(Math.random() * 10 + environment.probabilityWin);
-        } else if (this.pressRandom === this.numberPress) {
-            this.balls.forEach(element => {
-                this.balls.splice(this.balls.indexOf(element), 1, environment.numberWin);
-            });
-            return true;
-        }
-    }
-
-    public moneyBack(): number {
-        let moneyInMachine = environment.moneyMachine;
-        return Math.floor(Math.random() * moneyInMachine + 1);
-    }
-
-    public spin() {
-        const contador = interval(100);
-        this.iteration = 1; const numberTake = 10;
-        const iteration = contador.pipe(take(numberTake));
-
-        iteration.subscribe(n => {
-            this.balls.forEach(element => {
-                if (this.pressRandom === this.numberPress) {
-                    if (this.iteration == numberTake) {
-                        this.balls.splice(this.balls.indexOf(element), 1, environment.numberWin);
-                    } else {
-                        this.balls.splice(this.balls.indexOf(element), 1, Math.floor(Math.random() * 10 + 1));
-                    }
-                } else {
-                    this.balls.splice(this.balls.indexOf(element), 1, Math.floor(Math.random() * 10 + 1));
-                }
-            });
-            this.iteration++;
-        });
-
     }
 
 }

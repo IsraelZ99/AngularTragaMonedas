@@ -1,0 +1,38 @@
+<div class="environment">
+
+    <div class="containBalls" *ngFor="let ball of balls">
+        <div class="balls">
+            <button type="button" class="btn btn-outline-success btn-lg btn-block"> 
+            {{ ball }} 
+        </button>
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-outline-dark containerCoin" (click)="playVideogame()" [disabled]="buttonStatus">
+    <div class="insertCoin">
+        <div class="" [className]="buttonStatus ? '' : 'coin' "></div>
+    </div>  
+</button>
+
+    <div class="textInser">
+        <p>Inserta una moneda</p>
+    </div>
+
+</div>
+
+<!--
+<div *ngIf="winnerLoser(); then thenBlock else elseBlock"></div>
+
+<ng-template #thenBlock>
+    <div class="alert alert-success ouputMessage" role="alert">
+        {{ outputMessage }} $ {{ moneyWin }}
+    </div>
+</ng-template>
+
+<ng-template #elseBlock>
+    <div class="alert alert-danger ouputMessage" role="alert">
+        {{ outputMessage }}
+    </div>
+</ng-template>
+
+-->
