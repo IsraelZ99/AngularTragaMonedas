@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { timer } from 'rxjs'
+import { TimeInterval, timer } from 'rxjs'
 
 import { DataService } from '../services/data.service';
 import { environment } from 'src/environments/environment';
 import { SpinArray } from "../spinArray";
 import { Checkers } from '../checker';
+import { Time } from '@angular/common';
 
 
 @Component({
@@ -31,7 +32,7 @@ export class SpinComponent {
     this.Checkers = new Checkers();
   }
 
-  public playVideogame() {
+  public playVideogame() :void{
     this.SpinArray.setBalls(this.balls);
     this.SpinArray.setNumberPress(this.numberPress);
     this.dataService.moneyInMachine.emit(this.SpinArray.insertCoin());
@@ -40,7 +41,7 @@ export class SpinComponent {
     this.waitMoveBalls();
   }
 
-  public waitMoveBalls() {
+  public waitMoveBalls() :void{
     const contTimer = timer(environment.contTimer);
     contTimer.subscribe(n => {
       this.numberPress++;

@@ -44,7 +44,7 @@ export class SpinArray {
         return environment.moneyMachine += environment.costMachine;
     }
 
-    public spinNumbersOfArray() {
+    public spinNumbersOfArray() :void{
         const contador = interval(100);
         this.iteration = 1; const numberTake = 10;
         const iterationPipe = contador.pipe(take(numberTake));

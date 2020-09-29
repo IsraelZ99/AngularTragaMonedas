@@ -24,13 +24,13 @@ export class StatusGameComponent implements OnInit {
     this.showMoneyWin();
   }
 
-  public showMsgStatusGame() {
+  public showMsgStatusGame(): void {
     this.dataService.msgStatusGame.subscribe(text => {
       this.msgStatusGame = text;
     });
   }
 
-  public showMoneyWin() {
+  public showMoneyWin(): void {
     this.dataService.moneyWin.subscribe(money => {
       this.moneyWin = money;
     });
