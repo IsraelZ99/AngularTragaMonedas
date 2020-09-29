@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { GameComponent } from './game/game.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SpinComponent } from './spin/spin.component';
+import { StatusGameComponent } from './status-game/status-game.component';
 
 const routes: Route[] = [
   { path: '', component: GameComponent }
@@ -16,7 +17,8 @@ const routes: Route[] = [
   declarations: [
     AppComponent,
     GameComponent,
-    SpinComponent
+    SpinComponent,
+    StatusGameComponent
   ],
   imports: [
     BrowserModule,

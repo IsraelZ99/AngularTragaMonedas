@@ -4,6 +4,7 @@ import { timer } from 'rxjs'
 import { SpinArray } from "../spinArray";
 import { environment } from 'src/environments/environment';
 import { Checkers } from '../checker';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-spin',
@@ -13,35 +14,23 @@ import { Checkers } from '../checker';
 export class SpinComponent {
 
   public balls: number[];
-  public outputMessage: string;
-
-    public getOutputMessage(): string {
-        return this.outputMessage;
-    }
-
-    public setOutputMessage(outputMessage: string): void {
-        this.outputMessage = outputMessage;
-    }
 
   public numberPress: number;
   public SpinArray: SpinArray;
   public buttonStatus: boolean;
-  public moneyMachine: number;
-  public winner:boolean;
-  public loser:boolean;
 
-  public Checkers:Checkers;
+  public Checkers: Checkers;
 
-  constructor() {
+  constructor(private dataService: DataService) {
     this.balls = environment.balls;
     this.numberPress = 0;
     this.buttonStatus = false;
-    
+
     this.SpinArray = new SpinArray();
     this.Checkers = new Checkers();
   }
 
-  public playVideogame(){
+  public playVideogame() {
     this.SpinArray.setBalls(this.balls);
     this.SpinArray.setNumberPress(this.numberPress);
     if (this.SpinArray.verifyPressButton()) this.numberPress = -1;
@@ -56,10 +45,9 @@ export class SpinComponent {
       this.buttonStatus = false;
       environment.balls = this.SpinArray.getBalls();
       this.Checkers.setBalls(this.SpinArray.getBalls());
-      this.outputMessage = this.Checkers.verifyStatusWinerLoser();
+      this.dataService.msgStatusGame$.emit(this.Checkers.verifyStatusWinerLoser());
+      this.dataService.dinnerWin$.emit(this.Checkers.getMoneyWin());
     });
-    this.outputMessage = "";
-    environment.msgWinnerLoser="";
     this.buttonStatus = true;
   }
 

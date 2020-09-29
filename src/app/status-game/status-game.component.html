@@ -1,0 +1,13 @@
+<div *ngIf="checkMsgStatus(); then thenBlock else elseBlock"></div>
+
+<ng-template #thenBlock>
+    <div class="alert alert-success ouputMessage" role="alert">
+        {{ msgStatusGame }} {{ moneyWin }}
+    </div>
+</ng-template>
+
+<ng-template #elseBlock>
+    <div class="alert alert-danger ouputMessage" role="alert">
+        {{ msgStatusGame }}
+    </div>
+</ng-template>
