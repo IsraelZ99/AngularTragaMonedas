@@ -6,7 +6,7 @@
 export const environment = {
   production: false,
   balls: [0, 0, 0, 0],
-  probabilityWin: 1,
+  probabilityWin: 10,
   numberWin: 10,
   moneyMachine: 500,
   costMachine: 100,
