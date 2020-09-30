@@ -29,22 +29,19 @@ export class SpinComponent implements OnInit {
     this.balls = environment.balls;
     this.numberPress = 0;
     this.numberPressInsertCoin = 0;
-    //this.buttonInsertCreditStatu = false;
     this.SpinArray = new SpinArray();
-    this.Checkers = new Checkers(this.dataService);
+    this.Checkers = new Checkers();
   }
 
   ngOnInit(): void {
     this.observable();
     this.insertCredits();
-    if(this.getCreditsToEnter <= 0){
-      this.buttonStatus = true;
-      this.buttonInsertCreditStatu = true;
-    }
   }
 
   public playVideogame(): void {
-    if (this.getCreditsToEnter > 0) {
+    console.log("Creditos actuales: " + (this.getCreditsToEnter));
+    if ((this.getCreditsToEnter) > 0) {
+      this.deductCredit();
       this.SpinArray.setBalls(this.balls);
       this.SpinArray.setNumberPress(this.numberPress);
       this.dataService.moneyInMachine.emit(this.SpinArray.insertCoin());
@@ -53,7 +50,6 @@ export class SpinComponent implements OnInit {
       this.waitMoveBalls();
     } else {
       this.buttonStatus = true;
-      this.buttonInsertCreditStatu = true;
     }
   }
 
@@ -68,10 +64,8 @@ export class SpinComponent implements OnInit {
       this.dataService.moneyWin.emit(this.Checkers.getMoneyWin());
       //this.dataService.boughtCredits.emit(this.getCreditsToEnter - 1);
     });
-    this.deductCredit();
     this.dataService.msgStatusGame.emit("");
     this.buttonStatus = true;
-
   }
 
   public observable() {
@@ -84,11 +78,9 @@ export class SpinComponent implements OnInit {
   public insertCredits() {
     if (isNaN(this.getCreditsToEnter)) {
       this.buttonStatus = true;
-    } else if (this.getCreditsToEnter > 0) {
+    } else if (this.getCreditsToEnter >= 0) {
       this.buttonStatus = false;
       this.buttonInsertCreditStatu = false;
-      this.numberPressInsertCoin++;
-      this.creditsToEnter = 0;
     }
 
   }

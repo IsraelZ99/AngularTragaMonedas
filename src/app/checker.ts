@@ -1,15 +1,20 @@
 import { environment } from "../environments/environment";
-import { DataService } from './services/data.service';
 
 export class Checkers {
     private balls: number[];
     private moneyWin: number;
     private moneyInMachine: number;
-    private numberFlagPlayVideogame: number;
-    private flagPlayVideogame: boolean;
+    public creditsToEnter: number;
+    public buttonInsertCreditStatu: boolean;
+    public numberPressInsertCoin: number;
+    public getCreditsToEnter: number;
 
-    constructor(private dataService: DataService) {
+    constructor() {
         this.moneyInMachine = environment.moneyMachine;
+    }
+
+    public getGetCreditsToEnter(): number {
+        return this.getCreditsToEnter;
     }
 
     public getMoneyWin(): number {
@@ -46,23 +51,6 @@ export class Checkers {
             moneyRandomWin = Math.floor(Math.random() * this.moneyInMachine + 1);
         }
         return moneyRandomWin;
-    }
-
-    public checkCredits() {
-        this.dataService.boughtCredits.subscribe(money => {
-            this.numberFlagPlayVideogame = (isNaN(money) || money === 0) ? (0) : (money);
-        });
-    }
-
-    public check2(): boolean {
-        this.checkCredits();
-        console.log("numberflag = "+this.numberFlagPlayVideogame);
-        if (isNaN(this.numberFlagPlayVideogame)) {
-            return true;
-        } else {
-            console.log("La maquina tiene " + this.numberFlagPlayVideogame);
-            return false;
-        }
     }
 
 }
