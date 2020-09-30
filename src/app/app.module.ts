@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Route } from '@angular/router';
+import { FormsModule } from "@angular/forms";
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,6 +10,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SpinComponent } from './spin/spin.component';
 import { StatusGameComponent } from './status-game/status-game.component';
 import { MoneyManagerComponent } from './money-manager/money-manager.component';
+import { MachineCreditsComponent } from './machine-credits/machine-credits.component';
+import { ShowCreditsComponent } from './show-credits/show-credits.component';
 
 const routes: Route[] = [
   { path: '', component: GameComponent }
@@ -20,13 +23,16 @@ const routes: Route[] = [
     GameComponent,
     SpinComponent,
     StatusGameComponent,
-    MoneyManagerComponent
+    MoneyManagerComponent,
+    MachineCreditsComponent,
+    ShowCreditsComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule.forRoot(routes),
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

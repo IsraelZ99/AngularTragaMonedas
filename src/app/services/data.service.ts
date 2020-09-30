@@ -8,6 +8,7 @@ export class DataService {
   msgStatusGame = new EventEmitter<string>();
   moneyWin = new EventEmitter<number>();
   moneyInMachine = new EventEmitter<number>();
+  boughtCredits = new EventEmitter<number>();
   
   constructor() { }
 }

@@ -9,13 +9,25 @@
     </div>
 
     <button type="button" class="btn btn-outline-dark containerCoin" (click)="playVideogame()" [disabled]="buttonStatus">
-    <div class="insertCoin">
-        <div class="" [className]="buttonStatus ? '' : 'coin' "></div>
-    </div>  
-</button>
+        <div class="insertCoin">
+            <div class="" [className]="buttonStatus ? '' : 'coin' "></div>
+        </div>  
+    </button>
 
     <div class="textInser">
-        <p>Inserta una moneda</p>
+        <p>Inserta una moneda </p>
     </div>
 
+</div>
+
+
+<div class="container containerCredits" style="margin-top: 5rem; font-size: 20px;">
+
+    <div class="badge badge-primary text-wrap text-center font-weight-bolder credits">
+        Tienes actualmente: {{ getCreditsToEnter }} creditos comprados <br>
+    </div>
+
+    <div class="containerButton">
+        <button type="button" class="btn btn-info" (click)="insertCredits()" [disabled]="buttonInsertCreditStatu">Ingresar los creditos</button>
+    </div>
 </div>

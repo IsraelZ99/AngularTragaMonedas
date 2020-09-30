@@ -1,0 +1,15 @@
+.textCredits {
+    height: 3rem;
+    font-size: 15px;
+    margin-right: 3rem;
+    padding-top: 0.5rem;
+}
+
+.container {
+    display: flex;
+    width: 96%;
+}
+
+.containerButton {
+    margin-left: 3rem;
+}

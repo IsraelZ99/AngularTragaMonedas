@@ -15,7 +15,7 @@ export class StatusGameComponent implements OnInit {
   public moneyWin: number;
 
   constructor(private dataService: DataService) {
-    this.msgStatusGame = "Status";
+    this.msgStatusGame = "Status del Videojuego";
     this.moneyWin = 0;
   }
 
