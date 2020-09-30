@@ -24,8 +24,10 @@ export class MachineCreditsComponent implements OnInit {
       this.getCredits();
       if (isNaN(this.getNumberCredits)) {
         this.dataService.boughtCredits.emit(this.numberCredits);
+        this.numberCredits = 0;
       } else {
         this.dataService.boughtCredits.emit(this.getNumberCredits + this.numberCredits);
+        this.numberCredits = 0;
       }
     }
   }

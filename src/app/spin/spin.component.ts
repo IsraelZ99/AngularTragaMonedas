@@ -12,6 +12,7 @@ import { Checkers } from '../checker';
   templateUrl: './spin.component.html',
   styleUrls: ['./spin.component.css']
 })
+
 export class SpinComponent implements OnInit {
 
   public balls: number[];
@@ -19,7 +20,6 @@ export class SpinComponent implements OnInit {
   public buttonStatus: boolean;
   public creditsToEnter: number;
   public buttonInsertCreditStatu: boolean;
-  public numberPressInsertCoin: number;
   public getCreditsToEnter: number;
 
   public Checkers: Checkers;
@@ -28,7 +28,6 @@ export class SpinComponent implements OnInit {
   constructor(private dataService: DataService) {
     this.balls = environment.balls;
     this.numberPress = 0;
-    this.numberPressInsertCoin = 0;
     this.SpinArray = new SpinArray();
     this.Checkers = new Checkers();
   }
@@ -39,7 +38,6 @@ export class SpinComponent implements OnInit {
   }
 
   public playVideogame(): void {
-    console.log("Creditos actuales: " + (this.getCreditsToEnter));
     if ((this.getCreditsToEnter) > 0) {
       this.deductCredit();
       this.SpinArray.setBalls(this.balls);
@@ -62,20 +60,19 @@ export class SpinComponent implements OnInit {
       this.Checkers.setBalls(this.SpinArray.getBalls());
       this.dataService.msgStatusGame.emit(this.Checkers.verifyStatusWinerLoser());
       this.dataService.moneyWin.emit(this.Checkers.getMoneyWin());
-      //this.dataService.boughtCredits.emit(this.getCreditsToEnter - 1);
     });
     this.dataService.msgStatusGame.emit("");
     this.buttonStatus = true;
   }
 
-  public observable() {
+  public observable(): void {
     this.dataService.boughtCredits.subscribe(credits => {
       this.getCreditsToEnter = credits;
     });
   }
 
 
-  public insertCredits() {
+  public insertCredits(): void {
     if (isNaN(this.getCreditsToEnter)) {
       this.buttonStatus = true;
     } else if (this.getCreditsToEnter >= 0) {
@@ -85,13 +82,11 @@ export class SpinComponent implements OnInit {
 
   }
 
-  public deductCredit() {
+  public deductCredit() :void{
     if (this.getCreditsToEnter > 0) {
       this.dataService.boughtCredits.emit(this.getCreditsToEnter - 1);
     }
 
   }
-
-
 
 }
