@@ -1,5 +1,5 @@
-import { IfStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { isInteger } from '@ng-bootstrap/ng-bootstrap/util/util';
 import { DataService } from '../services/data.service';
 
 @Component({
@@ -21,14 +21,16 @@ export class MachineCreditsComponent implements OnInit {
   }
 
   public buyCredits(): void {
-    if (!isNaN(this.numberCredits)) {
-      this.getCredits();
-      if (isNaN(this.getNumberCredits)) {
-        this.dataService.boughtCredits.emit(Math.floor(this.numberCredits));
-        this.numberCredits = 0;
-      } else {
-        this.dataService.boughtCredits.emit(this.getNumberCredits + Math.floor(this.numberCredits));
-        this.numberCredits = 0;
+    if ((this.numberCredits % 1) === 0) {
+      if (!isNaN(this.numberCredits)) {
+        this.getCredits();
+        if (isNaN(this.getNumberCredits)) {
+          this.dataService.boughtCredits.emit(this.numberCredits);
+          this.numberCredits = 0;
+        } else {
+          this.dataService.boughtCredits.emit(this.getNumberCredits + this.numberCredits);
+          this.numberCredits = 0;
+        }
       }
     }
   }
