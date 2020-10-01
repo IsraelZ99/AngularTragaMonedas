@@ -40,7 +40,6 @@ export class SpinComponent implements OnInit {
   }
 
   public playVideogame(): void {
-    console.log("Hay acualmente de creditos :" + this.getCreditsToEnter);
     if ((this.getCreditsToEnter) > 0) {
       this.deductCredit();
       this.SpinArray.setBalls(this.balls);
@@ -85,14 +84,6 @@ export class SpinComponent implements OnInit {
         this.buttonInsertCreditStatu = false;
       }
     });
-
-    /*if (isNaN(this.getCreditsToEnter)) {
-      this.buttonStatus = true;
-    } else if (this.getCreditsToEnter >= 0) {
-      this.buttonStatus = false;
-      this.buttonInsertCreditStatu = false;
-    }*/
-
   }
 
   public deductCredit(): void {
