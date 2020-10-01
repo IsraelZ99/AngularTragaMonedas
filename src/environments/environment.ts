@@ -10,7 +10,7 @@ export const environment = {
   numberWin: 10,
   moneyMachine: 500,
   costMachine: 100,
-  contTimer: 1000
+  contTimer: 1200
 };
 
 

@@ -22,6 +22,7 @@ export class SpinComponent implements OnInit {
   public buttonInsertCreditStatu: boolean;
   public getCreditsToEnter: number;
 
+
   public Checkers: Checkers;
   public SpinArray: SpinArray;
 
@@ -32,6 +33,7 @@ export class SpinComponent implements OnInit {
     this.buttonStatus = true;
     this.SpinArray = new SpinArray();
     this.Checkers = new Checkers();
+
   }
 
   ngOnInit(): void {
@@ -58,7 +60,6 @@ export class SpinComponent implements OnInit {
     contTimer.subscribe(n => {
       this.numberPress++;
       this.buttonStatus = (this.getCreditsToEnter === 0) ? (true) : (false);
-      environment.balls = this.SpinArray.getBalls();
       this.Checkers.setBalls(this.SpinArray.getBalls());
       this.dataService.msgStatusGame.emit(this.Checkers.verifyStatusWinerLoser());
       this.dataService.moneyWin.emit(this.Checkers.getMoneyWin());
