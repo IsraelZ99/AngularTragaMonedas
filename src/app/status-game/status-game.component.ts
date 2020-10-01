@@ -37,7 +37,7 @@ export class StatusGameComponent implements OnInit {
     });
   }
 
-  public listenCredits(){
+  public listenCredits(): void{
     this.dataService.boughtCredits.subscribe(credits => {
       this.msgStatusGame = (credits <= 0) ? ("Status del Videojuego") : ("");
     });
