@@ -1,3 +1,4 @@
+import { IfStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 
@@ -23,10 +24,10 @@ export class MachineCreditsComponent implements OnInit {
     if (!isNaN(this.numberCredits)) {
       this.getCredits();
       if (isNaN(this.getNumberCredits)) {
-        this.dataService.boughtCredits.emit(this.numberCredits);
+        this.dataService.boughtCredits.emit(Math.floor(this.numberCredits));
         this.numberCredits = 0;
       } else {
-        this.dataService.boughtCredits.emit(this.getNumberCredits + this.numberCredits);
+        this.dataService.boughtCredits.emit(this.getNumberCredits + Math.floor(this.numberCredits));
         this.numberCredits = 0;
       }
     }
