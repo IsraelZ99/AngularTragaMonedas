@@ -19,7 +19,7 @@ export class MachineCreditsComponent implements OnInit {
     this.buyCredits();
   }
 
-  public buyCredits() :void{
+  public buyCredits(): void {
     if (!isNaN(this.numberCredits)) {
       this.getCredits();
       if (isNaN(this.getNumberCredits)) {
@@ -32,7 +32,17 @@ export class MachineCreditsComponent implements OnInit {
     }
   }
 
-  public getCredits() :void{
+  public checkKeyNumber(): boolean {
+    return (this.numberCredits > 0) ? (true) : (false);
+  }
+
+  public goToBuyCredits() {
+    if (this.checkKeyNumber()) {
+      this.buyCredits();
+    }
+  }
+
+  public getCredits(): void {
     this.dataService.boughtCredits.subscribe(money => {
       this.getNumberCredits = (isNaN(money)) ? (0) : (money);
     });

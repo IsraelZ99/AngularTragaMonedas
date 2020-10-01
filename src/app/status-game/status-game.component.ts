@@ -20,6 +20,7 @@ export class StatusGameComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.listenCredits();
     this.showMsgStatusGame();
     this.showMoneyWin();
   }
@@ -33,6 +34,12 @@ export class StatusGameComponent implements OnInit {
   public showMoneyWin(): void {
     this.dataService.moneyWin.subscribe(money => {
       this.moneyWin = money;
+    });
+  }
+
+  public listenCredits(){
+    this.dataService.boughtCredits.subscribe(credits => {
+      this.msgStatusGame = (credits <= 0) ? ("Status del Videojuego") : ("");
     });
   }
 

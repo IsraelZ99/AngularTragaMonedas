@@ -28,6 +28,8 @@ export class SpinComponent implements OnInit {
   constructor(private dataService: DataService) {
     this.balls = environment.balls;
     this.numberPress = 0;
+    this.buttonInsertCreditStatu = true;
+    this.buttonStatus = true;
     this.SpinArray = new SpinArray();
     this.Checkers = new Checkers();
   }
@@ -38,6 +40,7 @@ export class SpinComponent implements OnInit {
   }
 
   public playVideogame(): void {
+    console.log("Hay acualmente de creditos :" + this.getCreditsToEnter);
     if ((this.getCreditsToEnter) > 0) {
       this.deductCredit();
       this.SpinArray.setBalls(this.balls);
@@ -55,7 +58,7 @@ export class SpinComponent implements OnInit {
     const contTimer = timer(environment.contTimer);
     contTimer.subscribe(n => {
       this.numberPress++;
-      this.buttonStatus = false;
+      this.buttonStatus = (this.getCreditsToEnter === 0) ? (true) : (false);
       environment.balls = this.SpinArray.getBalls();
       this.Checkers.setBalls(this.SpinArray.getBalls());
       this.dataService.msgStatusGame.emit(this.Checkers.verifyStatusWinerLoser());
@@ -73,16 +76,26 @@ export class SpinComponent implements OnInit {
 
 
   public insertCredits(): void {
-    if (isNaN(this.getCreditsToEnter)) {
+    this.dataService.boughtCredits.subscribe(credits => {
+      if (isNaN(credits) || credits <= 0) {
+        this.buttonStatus = true;
+        this.buttonInsertCreditStatu = true;
+      } else {
+        this.buttonStatus = false;
+        this.buttonInsertCreditStatu = false;
+      }
+    });
+
+    /*if (isNaN(this.getCreditsToEnter)) {
       this.buttonStatus = true;
     } else if (this.getCreditsToEnter >= 0) {
       this.buttonStatus = false;
       this.buttonInsertCreditStatu = false;
-    }
+    }*/
 
   }
 
-  public deductCredit() :void{
+  public deductCredit(): void {
     if (this.getCreditsToEnter > 0) {
       this.dataService.boughtCredits.emit(this.getCreditsToEnter - 1);
     }
