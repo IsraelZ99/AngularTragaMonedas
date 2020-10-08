@@ -44,3 +44,9 @@ export class StatusGameComponent implements OnInit {
   }
 
 }
+
+let data = new DataService;
+let status = new StatusGameComponent(data);
+let shMsh = status.showMsgStatusGame();
+let shMoney = status.showMoneyWin();
+let listenCre = status.listenCredits();

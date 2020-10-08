@@ -42,7 +42,8 @@ export class MachineCreditsComponent implements OnInit {
   }
 
   public goToBuyCredits() {
-    if (this.checkKeyNumber()) {
+    let check = this.checkKeyNumber();
+    if (check) {
       this.buyCredits();
     }
   }
@@ -54,3 +55,10 @@ export class MachineCreditsComponent implements OnInit {
   }
 
 }
+
+let data = new DataService;
+let match = new MachineCreditsComponent(data);
+let check = match.checkKeyNumber();
+let goBuy = match.goToBuyCredits();
+let buy = match.buyCredits();
+

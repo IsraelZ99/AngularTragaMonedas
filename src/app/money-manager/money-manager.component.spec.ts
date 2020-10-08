@@ -27,10 +27,5 @@ describe('MoneyManagerComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should listen to subscribe', () => {
-    service.moneyInMachine.emit(environment.moneyMachine);
-    component.showMoneyInMachine();
-    expect(component.moneyMachine).toEqual(500);
-  });
 
 }); 

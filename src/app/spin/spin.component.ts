@@ -22,7 +22,6 @@ export class SpinComponent implements OnInit {
   public buttonInsertCreditStatu: boolean;
   public getCreditsToEnter: number;
 
-
   public Checkers: Checkers;
   public SpinArray: SpinArray;
 
@@ -33,12 +32,11 @@ export class SpinComponent implements OnInit {
     this.buttonStatus = true;
     this.SpinArray = new SpinArray();
     this.Checkers = new Checkers();
-
   }
 
   ngOnInit(): void {
     this.observable();
-    this.insertCredits();
+    this.insertCredits(); 
   }
 
   public playVideogame(): void {
@@ -57,7 +55,7 @@ export class SpinComponent implements OnInit {
 
   public waitMoveBalls(): void {
     const contTimer = timer(environment.contTimer);
-    contTimer.subscribe(n => {
+    contTimer.subscribe(() => {
       this.numberPress++;
       this.buttonStatus = (this.getCreditsToEnter === 0) ? (true) : (false);
       this.Checkers.setBalls(this.SpinArray.getBalls());
@@ -95,3 +93,9 @@ export class SpinComponent implements OnInit {
   }
 
 }
+
+let data = new DataService;
+let spin = new SpinComponent(data);
+let play = spin.playVideogame();
+let waitMoveBalls = spin.waitMoveBalls();
+let insert = spin.insertCredits();

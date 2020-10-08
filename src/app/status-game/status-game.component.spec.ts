@@ -8,9 +8,9 @@ describe('StatusGameComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StatusGameComponent ]
+      declarations: [StatusGameComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
