@@ -20,7 +20,7 @@ export class MachineCreditsComponent implements OnInit {
     this.buyCredits();
   }
 
-  public buyCredits(): void {
+  public buyCredits(): number {
     if ((this.numberCredits % 1) === 0) {
       if (!isNaN(this.numberCredits)) {
         this.getCredits();
@@ -32,7 +32,10 @@ export class MachineCreditsComponent implements OnInit {
           this.numberCredits = 0;
         }
       }
+    } else {
+      this.numberCredits = -1;
     }
+    return this.numberCredits;
   }
 
   public checkKeyNumber(): boolean {

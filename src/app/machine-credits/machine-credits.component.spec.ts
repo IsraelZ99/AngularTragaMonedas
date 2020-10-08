@@ -22,4 +22,12 @@ describe('MachineCreditsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  /*it('should have a whole number', () => {
+    fixture.nativeElement.querySelector('input').value = '10';
+    fixture.nativeElement.querySelector('button').click();
+
+    expect(component.buyCredits()).toEqual('0');
+  });*/
+
 });

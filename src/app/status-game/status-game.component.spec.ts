@@ -22,4 +22,8 @@ describe('StatusGameComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('ja', () => {
+    expect(document)
+  })
 });

@@ -11,6 +11,7 @@ import { SpinComponent } from './spin/spin.component';
 import { StatusGameComponent } from './status-game/status-game.component';
 import { MoneyManagerComponent } from './money-manager/money-manager.component';
 import { MachineCreditsComponent } from './machine-credits/machine-credits.component';
+import { ExampleTestingComponent } from './example-testing/example-testing.component';
 
 const routes: Route[] = [
   { path: '', component: GameComponent }
@@ -24,6 +25,7 @@ const routes: Route[] = [
     StatusGameComponent,
     MoneyManagerComponent,
     MachineCreditsComponent,
+    ExampleTestingComponent,
   ],
   imports: [
     BrowserModule,
