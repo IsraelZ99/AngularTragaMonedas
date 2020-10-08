@@ -28,9 +28,9 @@ describe('MoneyManagerComponent', () => {
   });
 
   it('should listen to subscribe', () => {
-    component.ngOnInit();
-    service.moneyInMachine.emit(environment.moneyMachine+100);
-    expect(component.moneyMachine).toEqual(600);
+    service.moneyInMachine.emit(environment.moneyMachine);
+    component.showMoneyInMachine();
+    expect(component.moneyMachine).toEqual(500);
   });
 
-});
+}); 
