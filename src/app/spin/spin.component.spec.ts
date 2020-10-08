@@ -22,4 +22,12 @@ describe('SpinComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have credits to enter the coin', () => {
+    const credits = 2; component.getCreditsToEnter = credits;
+    component.playVideogame();
+    expect(component.buttonStatus).toEqual(true);
+  });
+
+
 });

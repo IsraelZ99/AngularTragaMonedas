@@ -26,7 +26,7 @@ export class SpinComponent implements OnInit {
   public Checkers: Checkers;
   public SpinArray: SpinArray;
 
-  constructor(private dataService: DataService) {
+  constructor(public dataService: DataService) {
     this.balls = environment.balls;
     this.numberPress = 0;
     this.buttonInsertCreditStatu = true;

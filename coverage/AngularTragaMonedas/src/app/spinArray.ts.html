@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">43.48% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/23</span>
+                <span class='fraction'>10/23</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">12.5% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/8</span>
+                <span class='fraction'>1/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">45.45% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/11</span>
+                <span class='fraction'>5/11</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">40.91% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/22</span>
+                <span class='fraction'>9/22</span>
             </div>
         
             
@@ -151,30 +151,30 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -216,31 +216,31 @@ export class SpinArray {
 <span class="cstat-no" title="statement not covered" >        return this.numberPress;</span>
     }
 &nbsp;
-    public <span class="fstat-no" title="function not covered" >setNumberPress(</span>numberPress: number): void {
-<span class="cstat-no" title="statement not covered" >        this.numberPress = numberPress;</span>
+    public setNumberPress(numberPress: number): void {
+        this.numberPress = numberPress;
     }
-    public <span class="fstat-no" title="function not covered" >setBalls(</span>balls: number[]): void {
-<span class="cstat-no" title="statement not covered" >        this.balls = balls;</span>
+    public setBalls(balls: number[]): void {
+        this.balls = balls;
     }
 &nbsp;
-    public <span class="fstat-no" title="function not covered" >verifyPressButton(</span>): boolean {
-<span class="cstat-no" title="statement not covered" >        if (this.numberPress === 0) {</span>
-<span class="cstat-no" title="statement not covered" >            this.pressRandom = Math.floor(Math.random() * 10 + environment.probabilityWin);</span>
+    public verifyPressButton(): boolean {
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (this.numberPress === 0) {
+            this.pressRandom = Math.floor(Math.random() * 10 + environment.probabilityWin);
         } else <span class="cstat-no" title="statement not covered" >if (this.pressRandom === this.numberPress) {</span>
 <span class="cstat-no" title="statement not covered" >            return true;</span>
         }
     }
 &nbsp;
-    public <span class="fstat-no" title="function not covered" >insertCoin(</span>) :number{
-<span class="cstat-no" title="statement not covered" >        return environment.moneyMachine += environment.costMachine;</span>
+    public insertCoin() :number{
+        return environment.moneyMachine += environment.costMachine;
     }
 &nbsp;
-    public <span class="fstat-no" title="function not covered" >spinNumbersOfArray(</span>) :void{
-        const contador = <span class="cstat-no" title="statement not covered" >interval(100);</span>
-<span class="cstat-no" title="statement not covered" >        this.iteration = 1; </span>const numberTake = <span class="cstat-no" title="statement not covered" >10;</span>
-        const iterationPipe = <span class="cstat-no" title="statement not covered" >contador.pipe(take(numberTake));</span>
+    public spinNumbersOfArray() :void{
+        const contador = interval(100);
+        this.iteration = 1; const numberTake = 10;
+        const iterationPipe = contador.pipe(take(numberTake));
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        iterationPipe.subscribe(<span class="fstat-no" title="function not covered" >n </span>=&gt; {</span>
+        iterationPipe.subscribe(<span class="fstat-no" title="function not covered" >n </span>=&gt; {
 <span class="cstat-no" title="statement not covered" >            this.balls.forEach(<span class="fstat-no" title="function not covered" >element </span>=&gt; {</span>
 <span class="cstat-no" title="statement not covered" >                if (this.pressRandom === this.numberPress) {</span>
 <span class="cstat-no" title="statement not covered" >                    if (this.iteration == numberTake) {</span>
@@ -262,7 +262,7 @@ export class SpinArray {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Thu Oct 08 2020 11:45:12 GMT-0500 (hora de verano central)
+                at Thu Oct 08 2020 12:56:11 GMT-0500 (hora de verano central)
             </div>
         </div>
         <script src="../../prettify.js"></script>

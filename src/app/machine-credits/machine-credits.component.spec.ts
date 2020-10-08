@@ -23,11 +23,18 @@ describe('MachineCreditsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  /*it('should have a whole number', () => {
-    fixture.nativeElement.querySelector('input').value = '10';
-    fixture.nativeElement.querySelector('button').click();
+  it('should have a whole number', () => {
+    //(<HTMLInputElement>document.getElementById('number')).value = '10';
+    //fixture.nativeElement.querySelector('button').click();
+    const number = 10; component.numberCredits = number;
 
-    expect(component.buyCredits()).toEqual('0');
-  });*/
+    expect(component.buyCredits()).toEqual(1);
+  });
+
+  it ('should don not get a  decimal number', () => {
+    const number = 0.5; component.numberCredits = number;
+
+    expect(component.buyCredits()).toEqual(0);
+  });
 
 });
